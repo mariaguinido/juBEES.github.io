@@ -1,4 +1,5 @@
-// Dummy data
+document.addEventListener("DOMContentLoaded", function() {
+
 let dummyLabels = ["T-4","T-3","T-2","T-1","Now"];
 let dummyTemp = [21,22,22.5,23,22];
 let dummyHumidity = [50,52,53,55,54];
@@ -13,7 +14,6 @@ let videoLogData = [
 
 let chart = null;
 
-
 // Update card display
 document.getElementById('temp').innerText = dummyTemp[4] + " °C";
 document.getElementById('humidity').innerText = dummyHumidity[4] + " %";
@@ -21,10 +21,8 @@ document.getElementById('weight').innerText = dummyWeight[4] + " kg";
 document.getElementById('audio').innerText = dummyAudio[4] ? "Buzzing Alert!" : "Normal";
 document.getElementById('videoStatus').innerText = "No Intrusion";
 
-
-// ---------------- GRAPH CARDS ----------------
-
-function showGraph(type){
+// GRAPH CARDS
+window.showGraph = function(type){
   document.getElementById("detailsSection").style.display = "block";
   document.getElementById("videoSection").style.display = "none";
 
@@ -63,19 +61,15 @@ function showGraph(type){
   });
 }
 
-
-// ---------------- VIDEO CARD ----------------
-
-function showVideoPanel(){
+// VIDEO CARD
+window.showVideoPanel = function(){
   document.getElementById("detailsSection").style.display = "block";
   document.getElementById("videoSection").style.display = "block";
 
-  // Hide chart for video card
   const ctx = document.getElementById("detailChart").getContext("2d");
   ctx.clearRect(0,0,400,200);
   if(chart){ chart.destroy(); chart = null; }
 
-  // Load logs
   const logs = document.getElementById("videoLogs");
   logs.innerHTML = "";
   videoLogData.forEach(x => {
@@ -83,16 +77,10 @@ function showVideoPanel(){
     li.innerText = x;
     logs.appendChild(li);
   });
-
-  // Dummy video already in src
 }
 
-
-
-// ---------------- DOWNLOAD CSV ----------------
-// ---------------- DOWNLOAD CSV ----------------
-
-function downloadLogs(){
+// DOWNLOAD CSV
+window.downloadLogs = function(){
   let csv = "Time,Temperature,Humidity,Weight,Audio\n";
   for(let i=0;i<dummyLabels.length;i++){
     csv += ${dummyLabels[i]},${dummyTemp[i]},${dummyHumidity[i]},${dummyWeight[i]},${dummyAudio[i]}\n;
@@ -104,11 +92,11 @@ function downloadLogs(){
   a.click();
 }
 
-
-// ---------------- DUMMY LIVE STREAM ----------------
-
-function startLiveStream(){
+// DUMMY LIVE STREAM
+window.startLiveStream = function(){
   alert("Starting live stream... (dummy only)");
-  // Pag real na:
-  // document.getElementById("videoClip").src = "http://<pi-ip>:port/stream.mjpg";
+  // real live stream: document.getElementById("videoClip").src = "http://<pi-ip>:port/stream.mjpg";
 }
+
+});
+Write to Glenda Caimoy Espiritu
