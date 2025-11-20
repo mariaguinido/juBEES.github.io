@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Beehive Dashboard</title>
-<link rel="stylesheet" href="style.css">
+<title>juBEES Dashboard</title>
+<link rel="stylesheet" href="./style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -46,15 +46,12 @@
   </div>
 </div>
 
-
-<!-- DETAILS SECTION -->
 <div class="details" id="detailsSection" style="display:none;">
   <canvas id="detailChart" width="400" height="200"></canvas>
 
-  <!-- VIDEO PANEL (only shows for video card) -->
   <div id="videoSection" style="display:none; margin-top:20px;">
     <video id="videoClip" width="400" controls>
-      <source id="videoSource" src="example_clip.mp4" type="video/mp4">
+      <source id="videoSource" src="./example_clip.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
@@ -69,9 +66,9 @@
 </div>
 
 <footer>
-  © 2025 The Beehive | Dummy Example
+  © 2025 juBEES | Dummy Example
 </footer>
 
-<script src="script.js"></script>
+<script src="./script.js" defer></script>
 </body>
 </html>
